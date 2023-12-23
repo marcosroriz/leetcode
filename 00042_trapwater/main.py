@@ -9,18 +9,15 @@ class Solution:
         map_size = len(height)
         peak_height = 0
         left_peak = 0
-        max_right_peak = 0
         right_peak = 0
+        max_right_peak = 0
         left_peak_reached = False
         right_peak_reached = False
-
-        map_index = 0
         left_index = 0
         right_index = 0
         max_right_index = 0
 
         total_water = 0
-
 
         while left_index < right_index + 1:         
             while not left_peak_reached and left_index < map_size - 1:
@@ -49,6 +46,7 @@ class Solution:
 
                     if right_peak >= left_peak:
                         break
+
                 right_index = right_index + 1
 
             peak_height = min(left_peak, max_right_peak)
@@ -60,7 +58,6 @@ class Solution:
             if not right_peak_reached:
                 break
             
-            map_index = max_right_index
             left_index = max_right_index
             left_peak = max_right_peak
             max_right_peak = 0
